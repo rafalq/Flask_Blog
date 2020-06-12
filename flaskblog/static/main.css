@@ -36,13 +36,15 @@ footer h5 {
 }
 
 i.fab {
-  font-size: 20px;
+  padding-right: 8px;
+  font-size: 24px;
   color: #fff;
 }
 
 .content-section {
   background: #ffffff;
-  padding: 10px 20px;
+  padding: 20px;
+  padding-right: 30px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
