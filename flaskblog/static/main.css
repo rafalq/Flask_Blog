@@ -1,7 +1,7 @@
 body {
   background: #fafafa;
   color: #333333;
-  margin-top: 5rem;
+  margin-top: 6rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9,11 +9,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #000 /*#5f788a*/;
 }
 
 .site-header .navbar-nav .nav-link {
   color: #cbd5db;
+}
+
+#logo-image {
+  filter: invert(100%);
+  width: 90px;
+  height: 46px;
 }
 
 .site-header .navbar-nav .nav-link:hover {
@@ -22,6 +28,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
+}
+
+footer p,
+footer h5 {
+  color: #fff;
+}
+
+i.fab {
+  font-size: 20px;
+  color: #fff;
 }
 
 .content-section {
