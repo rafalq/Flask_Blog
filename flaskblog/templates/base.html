@@ -38,6 +38,7 @@
             <div class="navbar-nav">
               {% if current_user.is_authenticated %}
                 <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}"><i class="icon-nav fas fa-marker"></i> New Post</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.user_posts', username=current_user.username) }}"><i class="icon-nav fas fa-folder-open"></i> My Posts</a>
                 <a class="nav-item nav-link" href="{{ url_for('users.account') }}"><i class="icon-nav fas fa-user-circle"></i> Account</a>
                 <a class="nav-item nav-link" href="{{ url_for('users.logout') }}"><i class="icon-nav fas fa-sign-out-alt"></i> Logout</a>
               {% else %}

@@ -29,9 +29,9 @@
           </button>
         </div>
         <div class="modal-footer">
-          <button type="button" class="close-btn btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="update-btn close-btn btn btn-secondary" data-dismiss="modal">Close</button>
           <form action="{{ url_for('posts.delete_post', post_id=post.id) }}" method="POST">
-            <input class="btn btn-danger" type="submit" value="Delete">
+            <input class="delete-btn btn btn-danger" type="submit" value="Delete">
           </form>
         </div>
       </div>
