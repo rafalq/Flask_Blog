@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-steel {
-  background-color: #000 /*#5f788a*/;
+  background-color: #000;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -32,12 +32,26 @@ h1, h2, h3, h4, h5, h6 {
 
 footer p,
 footer h5 {
-  color: #fff;
+  color: #c7c7c7;
+}
+
+a.nav-item{
+  font-size: 18px;
+}
+
+i.icon-nav {
+  padding-right: 2px;
+  font-size: 12px !important;
 }
 
 i.fab {
+  padding-top: 12px;
   padding-right: 8px;
-  font-size: 24px;
+  font-size: 26px;
+  color: #c7c7c7;
+}
+
+i.fab:hover {
   color: #fff;
 }
 
@@ -95,4 +109,14 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.update-btn:hover {
+  background-color: #fff;
+  color: #6c757d;
+}
+
+.delete-btn:hover {
+  background-color: #fff;
+  color: #dc3545;
 }

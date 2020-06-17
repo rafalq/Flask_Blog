@@ -25,7 +25,7 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/"><img id="logo-image" src="../static/app_pics/flask-logo.png" alt="flask logo">Blog</a>
+          <a class="navbar-brand mr-4" href="/"><img id="logo-image" src="{{ url_for('static', filename='app_pics/flask-logo.png') }}" alt="flask logo">Blog</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -37,12 +37,12 @@
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}"><i class="fas fa-marker"></i> New Post</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.account') }}"><i class="fas fa-user-circle"></i> Account</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}"><i class="icon-nav fas fa-marker"></i> New Post</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.account') }}"><i class="icon-nav fas fa-user-circle"></i> Account</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.logout') }}"><i class="icon-nav fas fa-sign-out-alt"></i> Logout</a>
               {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.register') }}"><i class="fas fa-edit"></i> Register</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.login') }}"><i class="icon-nav fas fa-sign-in-alt"></i> Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.register') }}"><i class="icon-nav fas fa-edit"></i> Register</a>
               {% endif %}
             </div>
           </div>
@@ -92,7 +92,7 @@
           <p class="inline-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
         </div>
         <div class="col-sm-4">
-          <h5 class="uppercase pb-3">Social</h5>
+          <div class="pb-4"></div>
           <ul class="list-inline social-links">
             <li class="list-inline-item">
               <a target="_blank" href="#">
