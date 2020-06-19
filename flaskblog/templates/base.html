@@ -22,125 +22,122 @@
     {% endif %}
 </head>
 <body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="/"><img id="logo-image" src="{{ url_for('static', filename='app_pics/flask-logo.png') }}" alt="flask logo">Blog</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
-              <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
-              <a class="nav-item nav-link" href="{{ url_for('main.search') }}"><i class="icon-nav fas fa-search"></i> Search</a>
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}"><i class="icon-nav fas fa-marker"></i> New Post</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.user_posts', username=current_user.username) }}"><i class="icon-nav fas fa-folder-open"></i> My Posts</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.account') }}"><i class="icon-nav fas fa-user-circle"></i> Account</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.logout') }}"><i class="icon-nav fas fa-sign-out-alt"></i> Logout</a>
-              {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('users.login') }}"><i class="icon-nav fas fa-sign-in-alt"></i> Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.register') }}"><i class="icon-nav fas fa-edit"></i> Register</a>
-              {% endif %}
-            </div>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="/"><img id="logo-image" src="{{ url_for('static', filename='app_pics/flask-logo.png') }}" alt="flask logo">Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
+            <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
+            <a class="nav-item nav-link" href="{{ url_for('main.search') }}"><i class="icon-nav fas fa-search"></i> Search</a>
           </div>
-        </div>
-      </nav>
-    </header>
-
-    <main role="main" class="main-wrapper container">
-      <div class="row">
-        <div class="col-md-8">
-          {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+            {% if current_user.is_authenticated %}
+              <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}"><i class="icon-nav fas fa-marker"></i> New Post</a>
+              <a class="nav-item nav-link" href="{{ url_for('users.user_posts', username=current_user.username) }}"><i class="icon-nav fas fa-folder-open"></i> My Posts</a>
+              <a class="nav-item nav-link" href="{{ url_for('users.account') }}"><i class="icon-nav fas fa-user-circle"></i> Account</a>
+              <a class="nav-item nav-link" href="{{ url_for('users.logout') }}"><i class="icon-nav fas fa-sign-out-alt"></i> Logout</a>
+            {% else %}
+              <a class="nav-item nav-link" href="{{ url_for('users.login') }}"><i class="icon-nav fas fa-sign-in-alt"></i> Login</a>
+              <a class="nav-item nav-link" href="{{ url_for('users.register') }}"><i class="icon-nav fas fa-edit"></i> Register</a>
             {% endif %}
-          {% endwith %}
-          {% block content %}{% endblock %}
-        </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
-              </ul>
-            </p>
           </div>
         </div>
       </div>
-    </main>
-
-    <footer class="footer container-fluid p-4 bg-secondary text-center">
-      <div class="row">
-        <div class="col-sm-4">
-          <h5 class="uppercase general-sub">About</h5>
-          <p class="inline-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+    </nav>
+  </header>
+  <main role="main" class="main-wrapper container">
+    <div class="row">
+      <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+      </div>
+      <div class="col-md-4">
+        <div class="content-section">
+          <h3>Our Sidebar</h3>
+          <p class='text-muted'>You can put any information here you'd like.
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-light">Latest Posts</li>
+              <li class="list-group-item list-group-item-light">Announcements</li>
+              <li class="list-group-item list-group-item-light">Calendars</li>
+              <li class="list-group-item list-group-item-light">etc</li>
+            </ul>
           </p>
         </div>
-        <div class="col-sm-4">
-          <h5 class="uppercase general-sub">Terms &#38; Conditions</h5>
-          <p class="inline-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        </div>
-        <div class="col-sm-4">
-          <div class="pb-4"></div>
-          <ul class="list-inline social-links">
-            <li class="list-inline-item">
-              <a target="_blank" href="#">
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                <span class="sr-only">Facebook</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a target="_blank" href="#">
-                <i class="fab fa-twitter" aria-hidden="true"></i>
-                <span class="sr-only">Twitter</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a target="_blank" href="#">
-                <i class="fab fa-linkedin" aria-hidden="true"></i>
-                <span class="sr-only">LinkedIn</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a target="_blank" href="#">
-                <i class="fab fa-pinterest" aria-hidden="true"></i>
-                <span class="sr-only">Pinterest</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a target="_blank" href="#">
-                <i class="fab fa-instagram" aria-hidden="true"></i>
-                <span class="sr-only">Instagram</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a target="_blank" href="#">
-                <i class="fab fa-youtube" aria-hidden="true"></i>
-                <span class="sr-only">YouTube</span>
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
-    </footer>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </div>
+  </main>
+  <footer class="footer container-fluid p-4 bg-secondary text-center">
+    <div class="row">
+      <div class="col-sm-4 pl-5">
+        <h5 class="uppercase general-sub">About</h5>
+        <p class="inline-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </p>
+      </div>
+      <div class="col-sm-4 px-3">
+        <h5 class="uppercase general-sub">Terms &#38; Conditions</h5>
+        <p class="inline-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      </div>
+      <div class="col-sm-4">
+        <div class="pb-4"></div>
+        <ul class="list-inline social-links">
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-pinterest" aria-hidden="true"></i>
+              <span class="sr-only">Pinterest</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+              <span class="sr-only">Instagram</span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a target="_blank" href="#">
+              <i class="fab fa-youtube" aria-hidden="true"></i>
+              <span class="sr-only">YouTube</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
