@@ -98,6 +98,9 @@ a.article-title:hover {
   vertical-align: middle;
 }
 
+a.author-link {
+  font-size: 20px;
+}
 .account-img {
   height: 125px;
   width: 125px;
