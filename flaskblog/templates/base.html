@@ -33,6 +33,7 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
               <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
+              <a class="nav-item nav-link" href="{{ url_for('main.search') }}"><i class="icon-nav fas fa-search"></i> Search</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -51,7 +52,7 @@
       </nav>
     </header>
 
-    <main role="main" class="container">
+    <main role="main" class="main-wrapper container">
       <div class="row">
         <div class="col-md-8">
           {% with messages = get_flashed_messages(with_categories=true) %}
@@ -81,7 +82,7 @@
       </div>
     </main>
 
-    <footer class="container-fluid p-4 bg-secondary text-center">
+    <footer class="footer container-fluid p-4 bg-secondary text-center">
       <div class="row">
         <div class="col-sm-4">
           <h5 class="uppercase general-sub">About</h5>

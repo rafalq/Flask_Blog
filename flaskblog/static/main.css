@@ -1,7 +1,17 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   background: #fafafa;
   color: #333333;
   margin-top: 6rem;
+}
+
+.main-wrapper {
+  height:auto !important;
+  min-height:100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,9 +40,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-footer p,
-footer h5 {
-  color: #c7c7c7;
+.search-bar:focus {
+  border: 1px solid #000 !important;
 }
 
 a.nav-item{
@@ -42,17 +51,6 @@ a.nav-item{
 i.icon-nav {
   padding-right: 2px;
   font-size: 12px !important;
-}
-
-i.fab {
-  padding-top: 12px;
-  padding-right: 8px;
-  font-size: 26px;
-  color: #c7c7c7;
-}
-
-i.fab:hover {
-  color: #fff;
 }
 
 .content-section {
@@ -109,6 +107,22 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.footer p,
+.footer h5 {
+  color: #e2e2e2;
+}
+
+i.fab {
+  padding-top: 12px;
+  padding-right: 8px;
+  font-size: 26px;
+  color: #e2e2e2;
+}
+
+i.fab:hover {
+  color: #fff;
 }
 
 .update-btn:hover {
